@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: kurs.rest.messaging.SpringBootRestMessagingSystemApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.341 s - in kurs.rest.messaging.SpringBootRestMessagingSystemApplicationTests
