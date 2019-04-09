@@ -8,6 +8,9 @@ import javax.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,8 +59,12 @@ public class MessagingController {
 	
 	// POST SERVICE METHODS
 	@GetMapping("/trendingMessages")
-	public List<PostsSent> getMostTrendingMessages() throws SQLException { 
-		return service.getMostTrendingMessages();
+	public ResponseEntity<List<PostsSent>> getMostTrendingMessages() throws SQLException { 
+		List<PostsSent> trending = service.getMostTrendingMessages();
+		
+		HttpHeaders header = new HttpHeaders();
+		header.set("Access-Control-Allow-Origin", "*");
+		return new ResponseEntity<List<PostsSent>>(trending, header, HttpStatus.OK);
 	}
 	
 	@GetMapping("/posts")
